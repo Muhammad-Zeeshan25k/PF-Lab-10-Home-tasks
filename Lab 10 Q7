@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int count;
+    char track[10];
+    char students[4][10];
+    char courses[4][5][10];
+    int ccount[4];
+
+    for(int i=0;i<4;i++){
+        printf("\nEnter the name of Student %d :",i+1);
+        scanf("%s",students[i]);
+    }
+
+    printf("\nEnter Courses, Enter 0 to end\n");
+    for(int i=0;i<4;i++){
+        count=0;
+        for(int j=0;j<5;j++){
+            printf("\nEnter Course %d for %s :",j+1,students[i]);
+            scanf("%s",courses[i][j]);
+            if (strcmp(courses[i][j], "0") == 0) {
+                break;
+            }
+            count++;
+        }
+        ccount[i]=count;
+    }
+    for(int i=0;i<4;i++){
+            if(ccount[i]>3){
+                printf("\n%s has taken more than 3 courses, total: %d", students[i], ccount[i]);
+            }
+        }
+    printf("\n\n");
+    printf("Enter the subject to Track :");
+    scanf("%s",track);
+    for(int i=0;i<4;i++){
+    for (int k=0;k<5;k++){
+        if (strcmp(track,courses[i][k])==0){
+            printf("\n%s has taken %s course",students[i],track);
+           break;
+        }
+    }
+}
+    return 0;
+}
