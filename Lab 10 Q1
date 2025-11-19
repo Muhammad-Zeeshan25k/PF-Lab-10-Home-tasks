@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int capital=0,specialchar=0,digit=0;
+    char password[100];
+    printf("Enter Password :");
+    scanf("%s",password);
+    if (strlen(password)<8){
+        printf("Password must be 8 characters long\n");
+    }
+    for (int i=0;i<strlen(password);i++){
+        if(password[i]>='A' && password[i]<='Z'){
+            capital=1;
+        }
+        if(strchr("!@#$",password[i])){
+            specialchar=1;
+        }
+        if(password[i]>='0' && password[i]<='9'){
+            digit=1;
+        }
+    }
+    if(capital==0){
+        printf("Upper case character missing");
+    }
+    else if(specialchar==0){
+        printf("Special character missing");
+    }
+    else if(digit==0){
+        printf("Digit missing");
+    }
+    else{
+        printf("Valid Password");
+    }
+    return 0;
+}
