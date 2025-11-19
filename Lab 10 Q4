@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int n;
+    char message[100];
+    fgets(message,sizeof(message),stdin);
+    message[strcspn(message,"\n")]='\0';
+    n=sizeof(message);
+    for(int i=0;i<n;i++){
+        if((message[i]>='A'&& message[i]<='Z')||(message[i]>='a'&&message[i]<='z')){
+            message[i]+=3;
+        }
+    }
+    puts(message);
+    return 0;
+}
